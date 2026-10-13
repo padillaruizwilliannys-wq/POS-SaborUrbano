@@ -1,3 +1,5 @@
+# Edicion de codigo de prueba
+
 monto_total_diario = 0.0
 caja_abierta = True
 "si_metodo_pago" == 1
