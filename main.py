@@ -57,6 +57,19 @@ total_final_cliente = total_iva_cliente - descuento
 print("---")
 print("Total Final:", total_final_cliente)
 print("---")   
+if total_final_cliente > 150000:
+   print("Clasificada como Venta Alta")
+else:
+    print("Clasificada como Venta Habitual")
+    print("---")
+    monto_total_diario = monto_total_diario + total_final_cliente
+    print (""Monto Total Diario: ", monto_total_diario")
+
+elif opcion == "2":
+     print("TOTAL ACUMULADO DEL DIA")
+ elif opcion == "3":
+ print("CERRAR CAJA Y SALIR")
+    caja_abierta = False
 
           
 
