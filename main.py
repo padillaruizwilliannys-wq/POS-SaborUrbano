@@ -19,16 +19,22 @@ while caja_abierta:
         subtotal_cliente = 0 
         registro_venta = 3 
 
-        while registro_venta:
+        while registro_venta: False
+    else:
+        try:
+            precio = float(entrada)
+            if precio < 0 :
+
             #print ("Ingrese precio ")
             #entrada =  input ("precio ")
             entrada = input("Ingrese Precio: ")
 
             if entrada  == "0" or entrada  == "fin":
                 registro_venta = False 
-            else :
-                precio = float (entrada )
-                subtotal_cliente= subtotal_cliente + precio 
+            else :  
+                
+                  precio = float (entrada )
+                  subtotal_cliente= subtotal_cliente + precio 
             #fin-if
         #fin-while
         print("Boleta")
@@ -63,8 +69,8 @@ while caja_abierta:
     elif opcion == "3":
         print("CERRAR CAJA Y SALIR")
         caja_abierta = False
-    #fin-if
-
-          
+    else :
+      print("Opcion no valida. Por favor, ingrese 1, 2 o 3. ")   
+ 
 
         
