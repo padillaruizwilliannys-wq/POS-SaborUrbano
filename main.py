@@ -6,70 +6,64 @@ caja_abierta = True
 descuento = "total_iva_cliente"
 
 while caja_abierta:
-    print("1 Menu")
-    print("2 Registrar venta")
+    print("Menu")
+    print("1 Registrar venta")
+    print("2 Ver total acumulado del día.")
     print("3 cerrar caja y salir")
 
-    opcion = int(input("Ingrese opcion:"))
+    opcion = input("Ingrese opcion:")
 
-    if(opcion == 3):
-        print("cerrar caja y salir")
-        caja_abierta = False
-
-    if  opcion == 1 :
+    if  opcion == "1" :
         print ("Registro venta")
 
         subtotal_cliente = 0 
         registro_venta = 3 
 
-    while registro_venta:
+        while registro_venta:
+            #print ("Ingrese precio ")
+            #entrada =  input ("precio ")
+            entrada = input("Ingrese Precio: ")
 
-        print ("Ingrese precio ")
+            if entrada  == "0" or entrada  == "fin":
+                registro_venta = False 
+            else :
+                precio = float (entrada )
+                subtotal_cliente= subtotal_cliente + precio 
+            #fin-if
+        #fin-while
+        print("Boleta")
+        print("Subtotal:", subtotal_cliente )
+        monto_iva = subtotal_cliente * 0.19
+        total_iva_cliente = subtotal_cliente + monto_iva 
+        print ("Monto IVA:", monto_iva)       
+        print ("Total Cliente (+IVA):", total_iva_cliente)
 
-        entrada =  input ("precio ")
+        input("Presione cualquier tecla para continuar")
+        print("metodo de pago")
+        metodo_pago = input("1.Efectivo\n2.Tarjeta\nOpcion: ")
+        descuento = 0.0
+        if metodo_pago == "1":
+            descuento = total_iva_cliente*0.05
+        print("Descuento por efectivo (5%):", descuento)
+        total_final_cliente = total_iva_cliente - descuento
+        print("---")
+        print("Total Final:", total_final_cliente)
+        print("---")   
+        if total_final_cliente > 150000:
+            print("Clasificada como Venta Alta")
+        else:
+            print("Clasificada como Venta Habitual")
+            print("---")
+            monto_total_diario = monto_total_diario + total_final_cliente
+            
 
-        if entrada  == "0" or entrada  == "fin":
-
-           registro_venta = False 
-
-        else :
-
-           precio = float (entrada )
-
-           subtotal_cliente= subtotal_cliente + precio 
-
- 
-print("Boleta")
-print("Subtotal:", subtotal_cliente )
-monto_iva = subtotal_cliente * 0.19
-total_iva_cliente = subtotal_cliente + monto_iva 
-print ("Monto IVA:", monto_iva)       
-print ("Total Cliente (+IVA):", total_iva_cliente)
-
-input("Presione cualquier tecla para continuar")
-print("metodo de pago")
-metodo_pago = input("1.Efectivo\n2.Tarjeta\nOpcion: ")
-descuento = 0.0
-if metodo_pago == "1":
-   descuento = total_iva_cliente*0.05
-   print("Descuento por efectivo (5%):", descuento)
-total_final_cliente = total_iva_cliente - descuento
-print("---")
-print("Total Final:", total_final_cliente)
-print("---")   
-if total_final_cliente > 150000:
-   print("Clasificada como Venta Alta")
-else:
-    print("Clasificada como Venta Habitual")
-    print("---")
-    monto_total_diario = monto_total_diario + total_final_cliente
-    print (""Monto Total Diario: ", monto_total_diario")
-
-elif opcion == "2":
-     print("TOTAL ACUMULADO DEL DIA")
- elif opcion == "3":
- print("CERRAR CAJA Y SALIR")
-    caja_abierta = False
+    elif opcion == "2":
+        print("TOTAL ACUMULADO DEL DIA")
+        print("Monto Total Diario: ", monto_total_diario)   
+    elif opcion == "3":
+        print("CERRAR CAJA Y SALIR")
+        caja_abierta = False
+    #fin-if
 
           
 
