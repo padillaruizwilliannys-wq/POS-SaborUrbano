@@ -67,6 +67,7 @@ while caja_abierta:
     elif opcion == "3":
         print("CERRAR CAJA Y SALIR")
         caja_abierta = False
+        print("se cerro tu caja, tu total acomulado de tus ventas fue:",monto_total_diario)
     else :
       print("Opcion no valida. Por favor, ingrese 1, 2 o 3. ")   
  
