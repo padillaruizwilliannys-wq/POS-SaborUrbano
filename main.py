@@ -19,22 +19,20 @@ while caja_abierta:
         subtotal_cliente = 0 
         registro_venta = 3 
 
-        while registro_venta: False
-    else:
-        try:
-            precio = float(entrada)
-            if precio < 0 :
-
-            #print ("Ingrese precio ")
-            #entrada =  input ("precio ")
+        while registro_venta:
             entrada = input("Ingrese Precio: ")
 
             if entrada  == "0" or entrada  == "fin":
                 registro_venta = False 
-            else :  
-                
-                  precio = float (entrada )
-                  subtotal_cliente= subtotal_cliente + precio 
+            else:  
+                try:
+                    precio = float (entrada)
+                    if precio < 0:
+                        print("Error: El precio no puede ser negativo.")
+                    else:
+                        subtotal_cliente += precio 
+                except ValueError:
+                    print("Error: Ingrese un numero valido o ´fin´ para terminar.")
             #fin-if
         #fin-while
         print("Boleta")
